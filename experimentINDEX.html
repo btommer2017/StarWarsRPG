@@ -19,6 +19,7 @@
 
     <div class="jumbotron">
         <h1 id="mainTitle" class="text-center">Star Wars Battles!</h1>
+        <img src="" alt="" style="width:100%; height:85%;">
     </div>
 
     <div class="container">
@@ -274,11 +275,14 @@ function beginBattle() {
     if (twoHealth >= 0 && oneHealth >= 0) {  
     $("#attackButton").on("click", function () {
             playerOneAttack =   (characterOne[1] - (Math.floor(Math.random() * 75)  ));
-            console.log(playerOneAttack);
-            twoHealth = twoHealth- playerOneAttack;
+            console.log(playerOneAttack + " foo");
+            twoHealth = twoHealth - playerOneAttack;
+            console.log("TWO HEALTH " + twoHealth )
             if (twoHealth < 0) {
-            twoHealth = 0;
-            $("#playerTwoHealthText").text(0); }
+                console.log("Hello?")
+                twoHealth = 0;
+                $("#playerTwoHealthText").text(twoHealth); 
+            }
             else $("#playerTwoHealthText").text(twoHealth);
             
             playerTwoAttack = (characterTwo[1] - (Math.floor(Math.random() * 150)  ));
@@ -286,10 +290,10 @@ function beginBattle() {
             oneHealth = oneHealth - playerTwoAttack;
             $("#playerOneHealthText").text(oneHealth);
             if (twoHealth <= 0) {
-                aleart(characterOne[0] + " wins!")
+                alert(characterOne[0] + " wins!")
             }
             if (oneHealth <= 0) {
-                aleart(characterTwo[0] + " wins!")
+                alert(characterTwo[0] + " wins!")
             }
         })
         }

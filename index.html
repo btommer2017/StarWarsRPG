@@ -19,6 +19,7 @@
 
     <div class="jumbotron">
         <h1 id="mainTitle" class="text-center">Star Wars Battles!</h1>
+        <img src="" alt="" style="width:100%; height:85%;">
     </div>
 
     <div class="container">
@@ -260,7 +261,10 @@ function selectPlayerTwo() {
         playerTwoNotChosen = false;
         console.log("Player Two is: " +characterTwo[0]);
         console.log(characterTwo[0] + "'s attack power is: " +characterTwo[1]);
-        beginBattle();
+       
+        setTimeout(function () {
+                   beginBattle();
+    }, 4000);
         }
           });  //$(".starWarsCharacter").on("click", function () *************CLOSER
     }
@@ -268,26 +272,99 @@ function selectPlayerTwo() {
 
 
 function beginBattle() {
-    $("#attackButton").on("click", function () {
     if (twoHealth >= 0 && oneHealth >= 0) {  
+    $("#attackButton").on("click", function () {
             playerOneAttack =   (characterOne[1] - (Math.floor(Math.random() * 75)  ));
-            console.log(playerOneAttack);
-            twoHealth = twoHealth- playerOneAttack;
-            $("#playerTwoHealthText").text(twoHealth);
+            console.log(playerOneAttack + " foo");
+            twoHealth = twoHealth - playerOneAttack;
+            console.log("TWO HEALTH " + twoHealth )
+            if (twoHealth < 0) {
+                console.log("Hello?")
+                twoHealth = 0;
+                $("#playerTwoHealthText").text(twoHealth); 
+            }
+            else $("#playerTwoHealthText").text(twoHealth);
             
             playerTwoAttack = (characterTwo[1] - (Math.floor(Math.random() * 150)  ));
             console.log(playerTwoAttack);
             oneHealth = oneHealth - playerTwoAttack;
             $("#playerOneHealthText").text(oneHealth);
+            if (twoHealth <= 0) {
+                alert(characterOne[0] + " wins!")
+            }
+            if (oneHealth <= 0) {
+                alert(characterTwo[0] + " wins!")
+            }
+        })
         }
-    })
     };   //begin battle closer
 
 
 });  // $(document).ready(function () CLOSER
 
+
+
+//         console.log( characterOne[0] + "'s attack is "  +
+//       (characterOne[1] - (Math.floor(Math.random() * 75)  ))
+// );
+//         console.log( characterTwo[0] + "'s attack is "  +
+//       (characterTwo[1] - (Math.floor(Math.random() * 150)  ))
+// );
+// console.log("attack was pressed");
+// console.log(characterOne[0]);
+// console.log(characterOne[1]);
+// console.log(characterTwo[0]);
+// console.log(characterTwo[1]);
+// console.log(characterOne[1]);
+
+
+
+// gem1 = Math.floor((Math.random() * 12) + 1);
+// gem2 = Math.floor((Math.random() * 12) + 1);
+// gem3 = Math.floor((Math.random() * 12) + 1);
+// gem4 = Math.floor((Math.random() * 12) + 1);
+// totalScoreTarget = Math.floor((Math.random() * 101) + 19);
+// $("#totalScoreTarget").text(totalScoreTarget);
+// $("#currentTotalScore").text(totalScore);
+// $("#wins").text("Wins: " + win);
+// $("#losses").text("Loses: " + loss);
+
 </script>
 <!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
 </body>
 </html>
-        
+
+
+
+
+
+
+
+
+
+
+
+
+   // // Stretch Buttons
+   // $(".starWarsCharacter").on("click", function() {
+       //     $(".this").animate({ height: "150px", width: "50%"});
+       //   });
+       
+       
+       
+       //   div.animate({height: 300}, 2222);
+       
+       //  setTimeout(function () {
+           //     $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .1"/>');
+           //          }, 2000);
+   
+           
+           
+           // $('#arenaChar2').prepend('<img id="arenaChar2" src="assets/images/Dooku160.png" style="opacity: .1"/>')
+           // $('#arenaChar1').animate({ opacity:.5},2000);
+           //    $($('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .1"/>')).animate({ opacity:.9});
+           
+           //    alert(this.value);
+           //    alert("Character Name: " + this.id);
+           
+           
