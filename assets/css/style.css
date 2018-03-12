@@ -1,162 +1,81 @@
-/* #mainTitle {
-    font-size: 200px;
-} */
-body{
+
+body {
     background-image: url("../images/SpaceBackground.png");
 }
+
 .jumbotron {
     background-image: url("../images/StarWarsLogo.png");
-    
-    color:rgb(251, 255, 0);
+    color: rgb(251, 255, 0);
 }
 
 #classHeading2 {
     background-color: rgb(6, 6, 7);
-    color:rgb(251, 255, 0);
+    color: rgb(251, 255, 0);
     text-align: center;
 }
-
-.characterName {
-    color:rgb(251, 255, 0);
-background-color: black;
-text-align: center;
-margin-bottom:0;
-}
-h5{
-    margin-bottom:0px;
-    margin-top:6px;
-}
-.characterPower {
-    color:rgb(251, 255, 0);
-    background-color: black;
-    text-align: center;
-    height:25px;
-    padding-top:.10001px;
-    margin-bottom:0px;
-    }
-
-    #battleArena {
-border: solid 20px black;
-/* background-color: black; */
-/* color:white; */
-text-align: center;
-margin-top: 30px;
-height:500px;
-    }
-
-#battleCharacter1{
-    float: left; 
-    margin: 0 auto;
-    width: 100%;
-    height:200px;
-}
-
-#battleCharacter2{
-    float: right;
-    
-}
-#versus{
-    float: left; 
-    
-    font-size: 10px;
-}
-#versusBox{
-    /* border: solid 5px black; */
-  width: 15%;
-  height: 100px;
-   margin-left:10%;
-   margin-top:50px;
-
-}
-
-
-
 
 #panelBody {
-    /* background-image: url("../images/gemBackground.jpg"); */
-    /* background-image: url("../images/gemBackground3.jpg"); */
-    /* background-image: url("../images/backGround2.png"); */
-    background-image: url("../images/gemBackground2.jpg");
+    background-image: url("../images/LavaBackground.jpg");
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-#instructionBox {
-    margin-top: 40px;
+h5 {
+    margin-bottom: 0px;
+    margin-top: 6px;
 }
 
-#totalScoreTargetBox {
-    border: solid 3px black;
-    height: 100px;
-    text-align: center;
-    width: 60%;
-    margin-top: 20px;
-    float: left;
-    background-color: rgb(37, 69, 167);
-    /* background-image: url("../images/background3.jpg"); */
-    color: white;
-    padding-top: 8px;
-}
-
-#winsLosesBox {
-    border: solid 3px black;
-    height: 100px;
-    padding-top: 11px;
-    text-align: center;
+#battleArenaText {
+    font-size: 50px;
     font-weight: bolder;
-    float: left;
-    margin-top: 20px;
-    width: 35%;
-    margin-left: 5%;
-    background-color: rgb(37, 69, 167);
-    /* background-image: url("../images/background3.jpg"); */
-    color: white;
 }
 
-.crystal {
-    border: solid 4px black;
-    height: 136px;
-    width: 24%;
-    float: left;
-    background-color: white;
-    margin-top: 20px;
-    margin-right: .5%;
-    margin-left: .5%;
-}
-
-#totalScoreTextBox {
-    border: solid 3px black;
-    height: 70px;
+#battleArena {
+    border: solid 20px black;
+    color: black;
     text-align: center;
-    margin-top: 20px;
-    width: 100%;
-    float: left;
-    background-color: rgb(37, 69, 167);
-    /* background-image: url("../images/background3.jpg"); */
-    color: white;
+    margin-top: 30px;
+    height: 600px;
 }
 
-#currentTotalScoreBox {
-    border: solid 3px black;
-    height: 70px;
-    text-align: center;
-    margin-top: 20px;
-    width: 100%;
-    margin-bottom: 40px;
+.characterPanel {
+    height: 300px;
+}
+
+#arenaChar2 {
     float: left;
-    background-color: rgb(37, 69, 167);
-    /* background-image: url("../images/background3.jpg"); */
-    color: white;
-    padding-bottom: 80px;
+    margin-left: 10%;
+}
+
+#arenaChar1 {
+    float: left;
+    margin-left: 12%;
+}
+
+#versus {
+    float: left;
+    font-size: 10px;
+}
+
+#versusBox {
+
+    width: 15%;
+    height: 100px;
+    margin-left: 10%;
+    margin-top: 50px;
+    margin-bottom: 200px;
+}
+
+.notPickedYet:hover {
+    opacity: .92;
+}
+
+#attackButton {
+    /* position: absolute; */
+   
+    height:70px;
+    width:140px;
+    background-color: black;
+    color:yellow;
+    text-align: center;
+    margin-left: 1.5%;
+    
 }

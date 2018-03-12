@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Star Wars RPG</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <!-- add link to css stylesheet that'll overide any previous css based on the bottom placement -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="jumbotron">
+        <h1 id="mainTitle" class="text-center">Star Wars Battles!</h1>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- top blank panel -->
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div id="classHeading2" class="panel-heading">
+                        <h2 class="panel-title">Character Panel</h2>
+                    </div>
+                    <!-- Instruction Panel -->
+                    <div id="panelBody" class="panel-body">
+
+<!-- ################################################################# CHARACTER SELECTION PANEL ######################################## -->
+                        <div class="col-lg-12 characterPanel">
+                            <!-- ###################################### VADER #########################################                  -->
+                            <div class="col-lg-3">
+                                <div id="char1" class="starWarsCharacter notPickedYet" value=0>
+                                    <img src="assets/images/Vader250.png" alt="" style="width:100%; height:85%;">
+                                </div>
+                            </div>
+
+                            <!-- ###################################### DARTH MAUL #########################################                  -->
+                            <div class="col-lg-3">
+
+                                <div id="char2" class="starWarsCharacter notPickedYet" value=0>
+                                    <img src="assets/images/Maul180.png" alt="" style="width:100%; height:85%;">
+                                </div>
+                            </div>
+
+                            <!-- ###################################### ANAKIN #########################################                  -->
+                            <div class="col-lg-3">
+
+                                <div id="char3" class="starWarsCharacter notPickedYet" value=0>
+                                    <img src="assets/images/Anakin200.png" alt="" style="width:100%; height:85%;">
+                                </div>
+                            </div>
+
+                            <!-- ###################################### COUNT DOOKU #########################################                  -->
+                            <div class="col-lg-3">
+
+                                <div id="char4" class="starWarsCharacter notPickedYet" value=0>
+                                    <img src="assets/images/Dooku160.png" alt="" style="width:100%; height:85%;">
+                                </div>
+                            </div>
+                        </div>
+<!-- ################################################################# CHARACTER SELECTION PANEL ######################################## -->
+<!-- ################################################################# BATTLE ARENA ######################################## -->
+
+                        <div class="col-lg-12" id="battleArena">
+                            <h1 id="battleArenaText">Battle Arena</h1>
+                            <!-- </div> -->
+
+                            <div class="col-lg-12">
+
+                                <div class="col-lg-4">
+
+                                        <div id="arenaChar1" class="starWarsCharacter" value=0>
+                                            <img  src="" alt="" style="width:100%; height:100%;">
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                    <div class="col-lg-4" id="versusBox">
+                                        <img src="assets/images/Versus.png" alt="ruby" style="width:100%; height:100%;">
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    <div class="col-lg-4">
+                                        
+                                        <div id="arenaChar2" class="starWarsCharacter" value=0>
+                                            <img src="" alt="" style="width:80%; height:80%;">
+                                        </div>
+                                        
+                                    </div>
+                                    
+                                </div>
+                                <br>
+                                <div class="col-lg-12">
+                                        <button type="button" id="attackButton">ATTACK</button>
+
+                            </div>
+                        </div>
+<!-- ################################################################# BATTLE ARENA ######################################## -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ############################################################################################################################# -->
+   <script>
+       $(document).ready(function () {
+
+var characterOne = "";
+var characterTwo = "";
+var Vader ="Darth Vader";
+var Dooku = "Count Dooku";
+var Maul = "Darth Maul";
+var Anakin = "Anakin Skywalker";
+playerOneNotChosen= true;
+playerTwoNotChosen= true;
+
+// initializeGame();
+// ############################################## SELECT PLAYER ONE ################################################   
+if (playerOneNotChosen) {
+       $(".starWarsCharacter").on("click", function () {
+             
+            if(this.id === "char1" && playerOneNotChosen ===true) {
+                $(this).animate({ opacity:.1},2000);
+                setTimeout(function () {
+            $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .95"/>'); 
+          
+        }, 2000); 
+        characterOne = Vader;
+        playerOneNotChosen = false;
+        console.log(characterOne);
+        selectPlayerTwo();
+        }
+          else  if(this.id === "char2" && playerOneNotChosen ===true) {
+            $(this).animate({ opacity:0},2000);
+                setTimeout(function () {
+            $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Maul180.png"  style="opacity: .95"/>'); 
+        }, 2000); 
+        characterOne = Maul;
+        playerOneNotChosen = false;
+        console.log(characterOne);
+        selectPlayerTwo();
+        }
+          else  if(this.id === "char3" && playerOneNotChosen ===true) {
+            $(this).animate({ opacity:0},2000);
+                setTimeout(function () {
+            $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Anakin200.png"  style="opacity: .95"/>'); 
+        }, 2000); 
+        characterOne = Anakin;
+        playerOneNotChosen = false;
+        console.log(characterOne);
+        selectPlayerTwo();
+        }
+           else if(this.id === "char4" && playerOneNotChosen ===true) {
+            $(this).animate({ opacity:0},2000);
+                setTimeout(function () {
+            $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Dooku160.png"  style="opacity: .95"/>'); 
+        }, 2000); 
+        characterOne = Dooku;
+        playerOneNotChosen = false;
+        console.log(characterOne);
+        selectPlayerTwo();
+        }
+          });
+    }
+// #################################################### END SELECT PLAYER ONE #########################################3
+function selectPlayerTwo() {
+    if (playerTwoNotChosen) {
+       $(".starWarsCharacter").on("click", function () {
+             
+            if    (this.id === "char1" && Vader != characterOne && playerTwoNotChosen === true) {
+                $(this).animate({ opacity:0},2000);
+                setTimeout(function () {
+            $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .95"/>'); 
+        }, 2000); 
+        characterTwo = Vader;
+        playerTwoNotChosen = false;
+        console.log(characterTwo);
+        beginBattle();
+        }
+          else  if    (this.id === "char2" && Maul != characterOne && playerTwoNotChosen === true) {
+                $(this).animate({ opacity:0},2000);
+                setTimeout(function () {
+            $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Maul180.png"  style="opacity: .95"/>'); 
+        }, 2000); 
+        characterTwo = Maul;
+        playerTwoNotChosen = false;
+        console.log(characterTwo);
+        beginBattle();
+        }
+          else  if   (this.id === "char3" && Anakin != characterOne && playerTwoNotChosen === true) {
+                $(this).animate({ opacity:0},2000);
+                setTimeout(function () {
+            $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Anakin200.png"  style="opacity: .95"/>'); 
+        }, 2000); 
+        characterTwo = Anakin;
+        playerTwoNotChosen = false;
+        console.log(characterTwo);
+        beginBattle();
+        }
+           else if (this.id === "char4" && Dooku != characterOne && playerTwoNotChosen === true) {
+                $(this).animate({ opacity:0},2000);
+                setTimeout(function () {
+            $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Dooku160.png"  style="opacity: .95"/>'); 
+        }, 2000); 
+        characterTwo = Dooku;
+        playerTwoNotChosen = false;
+        console.log(characterTwo);
+        beginBattle();
+        }
+          });  //$(".starWarsCharacter").on("click", function () *************CLOSER
+    }
+}  // selectPlayerTwo() ********************CLOSER
+    });  // $(document).ready(function () CLOSER
+
+
+
+   // // Stretch Buttons
+   // $(".starWarsCharacter").on("click", function() {
+       //     $(".this").animate({ height: "150px", width: "50%"});
+       //   });
+       
+       
+       
+       //   div.animate({height: 300}, 2222);
+       
+       //  setTimeout(function () {
+           //     $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .1"/>');
+           //          }, 2000);
+   
+           
+           
+           // $('#arenaChar2').prepend('<img id="arenaChar2" src="assets/images/Dooku160.png" style="opacity: .1"/>')
+           // $('#arenaChar1').animate({ opacity:.5},2000);
+           //    $($('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .1"/>')).animate({ opacity:.9});
+           
+           //    alert(this.value);
+           //    alert("Character Name: " + this.id);
+           
+           
+           </script>
+
+
+
+<!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
+</body>
+
+</html>
