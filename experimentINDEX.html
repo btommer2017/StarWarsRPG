@@ -36,7 +36,7 @@
                         <div class="col-lg-12 characterPanel">
                             <!-- ###################################### VADER #########################################                  -->
                             <div class="col-lg-3">
-                                <div id="char1" class="starWarsCharacter notPickedYet" value=0>
+                                <div id="char1" class="starWarsCharacter notPickedYet">
                                     <img src="assets/images/Vader250.png" alt="" style="width:100%; height:85%;">
                                 </div>
                             </div>
@@ -44,7 +44,7 @@
                             <!-- ###################################### DARTH MAUL #########################################                  -->
                             <div class="col-lg-3">
 
-                                <div id="char2" class="starWarsCharacter notPickedYet" value=0>
+                                <div id="char2" class="starWarsCharacter notPickedYet">
                                     <img src="assets/images/Maul180.png" alt="" style="width:100%; height:85%;">
                                 </div>
                             </div>
@@ -52,7 +52,7 @@
                             <!-- ###################################### ANAKIN #########################################                  -->
                             <div class="col-lg-3">
 
-                                <div id="char3" class="starWarsCharacter notPickedYet" value=0>
+                                <div id="char3" class="starWarsCharacter notPickedYet">
                                     <img src="assets/images/Anakin200.png" alt="" style="width:100%; height:85%;">
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                             <!-- ###################################### COUNT DOOKU #########################################                  -->
                             <div class="col-lg-3">
 
-                                <div id="char4" class="starWarsCharacter notPickedYet" value=0>
+                                <div id="char4" class="starWarsCharacter notPickedYet">
                                     <img src="assets/images/Dooku160.png" alt="" style="width:100%; height:85%;">
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
 
                                 <div class="col-lg-4">
 
-                                        <div id="arenaChar1" class="starWarsCharacter" value=0>
+                                        <div id="arenaChar1" class="starWarsCharacter">
                                             <img  src="" alt="" style="width:100%; height:100%;">
                                         </div>
                                         
@@ -85,13 +85,10 @@
                                     <div class="col-lg-4" id="versusBox">
                                         <img src="assets/images/Versus.png" alt="ruby" style="width:100%; height:100%;">
                                     </div>
-                                    
-                                    
-                                    
-                                    
+                      
                                     <div class="col-lg-4">
                                         
-                                        <div id="arenaChar2" class="starWarsCharacter" value=0>
+                                        <div id="arenaChar2" class="starWarsCharacter">
                                             <img src="" alt="" style="width:80%; height:80%;">
                                         </div>
                                         
@@ -100,8 +97,20 @@
                                 </div>
                                 <br>
                                 <div class="col-lg-12">
-                                        <button type="button" id="attackButton">ATTACK</button>
+                                        <div class="col-lg-4">
+                                                <div id="playerOneHealthBox">
+                                                        <h1 id="playerOneHealthText"></h1>
+                                                    </div>
+                                                </div>
 
+                                        <div class="col-lg-4">
+                                        <button type="button" id="attackButton">ATTACK</button>
+                                        </div>
+                                        <div class="col-lg-4">
+                                                <div id="playerTwoHealthBox">
+                                                        <h1 id="playerTwoHealthText"></h1>
+                                                    </div>
+                                                </div>
                             </div>
                         </div>
 <!-- ################################################################# BATTLE ARENA ######################################## -->
@@ -115,12 +124,14 @@
    <script>
        $(document).ready(function () {
 
-var characterOne = "";
-var characterTwo = "";
-var Vader ="Darth Vader";
-var Dooku = "Count Dooku";
-var Maul = "Darth Maul";
-var Anakin = "Anakin Skywalker";
+characterOne = [];
+characterTwo = [];
+oneHealth = 1000;
+twoHealth = 500;
+var Vader = ["Darth Vader", 250];
+var Dooku = ["Count Dooku", 160];
+var Maul = ["Darth Maul", 180];
+var Anakin = ["Anakin Skywalker",200];
 playerOneNotChosen= true;
 playerTwoNotChosen= true;
 
@@ -135,19 +146,29 @@ if (playerOneNotChosen) {
             $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .95"/>'); 
           
         }, 2000); 
-        characterOne = Vader;
+        setTimeout(function () {
+            $("#playerOneHealthText").text(oneHealth);
+        }, 2500);
         playerOneNotChosen = false;
-        console.log(characterOne);
+        characterOne = Vader;
+        console.log("Player One is: " +characterOne[0]);
+        console.log(characterOne[0] + "'s attack power is: " +characterOne[1]);
         selectPlayerTwo();
         }
+
+
           else  if(this.id === "char2" && playerOneNotChosen ===true) {
             $(this).animate({ opacity:0},2000);
                 setTimeout(function () {
             $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Maul180.png"  style="opacity: .95"/>'); 
         }, 2000); 
         characterOne = Maul;
+        setTimeout(function () {
+        $("#playerOneHealthText").text(oneHealth);
+    }, 2500);
         playerOneNotChosen = false;
-        console.log(characterOne);
+        console.log("Player One is: " +characterOne[0]);
+        console.log(characterOne[0] + "'s attack power is: " +characterOne[1]);
         selectPlayerTwo();
         }
           else  if(this.id === "char3" && playerOneNotChosen ===true) {
@@ -156,8 +177,12 @@ if (playerOneNotChosen) {
             $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Anakin200.png"  style="opacity: .95"/>'); 
         }, 2000); 
         characterOne = Anakin;
+        setTimeout(function () {
+        $("#playerOneHealthText").text(oneHealth);
+    }, 2500);
         playerOneNotChosen = false;
-        console.log(characterOne);
+        console.log("Player One is: " +characterOne[0]);
+        console.log(characterOne[0] + "'s attack power is: " +characterOne[1]);
         selectPlayerTwo();
         }
            else if(this.id === "char4" && playerOneNotChosen ===true) {
@@ -166,9 +191,13 @@ if (playerOneNotChosen) {
             $('#arenaChar1').prepend('<img id="arenaChar1" src="assets/images/Dooku160.png"  style="opacity: .95"/>'); 
         }, 2000); 
         characterOne = Dooku;
+        setTimeout(function () {
+        $("#playerOneHealthText").text(oneHealth);
+    }, 2500);
         playerOneNotChosen = false;
-        console.log(characterOne);
-        selectPlayerTwo();
+        console.log("Player One is: " +characterOne[0]);
+        console.log(characterOne[0] + "'s attack power is: " +characterOne[1]);
+         selectPlayerTwo();
         }
           });
     }
@@ -183,9 +212,13 @@ function selectPlayerTwo() {
             $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Vader250.png"  style="opacity: .95"/>'); 
         }, 2000); 
         characterTwo = Vader;
+        setTimeout(function () {
+        $("#playerTwoHealthText").text(twoHealth);
+    }, 2500);
         playerTwoNotChosen = false;
-        console.log(characterTwo);
-        beginBattle();
+        console.log("Player Two is: " +characterTwo[0]);
+        console.log(characterTwo[0] + "'s attack power is: " +characterTwo[1]);
+              beginBattle();
         }
           else  if    (this.id === "char2" && Maul != characterOne && playerTwoNotChosen === true) {
                 $(this).animate({ opacity:0},2000);
@@ -193,8 +226,12 @@ function selectPlayerTwo() {
             $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Maul180.png"  style="opacity: .95"/>'); 
         }, 2000); 
         characterTwo = Maul;
+        setTimeout(function () {
+        $("#playerTwoHealthText").text(twoHealth);
+    }, 2500);
         playerTwoNotChosen = false;
-        console.log(characterTwo);
+        console.log("Player Two is: " +characterTwo[0]);
+        console.log(characterTwo[0] + "'s attack power is: " +characterTwo[1]);
         beginBattle();
         }
           else  if   (this.id === "char3" && Anakin != characterOne && playerTwoNotChosen === true) {
@@ -203,8 +240,12 @@ function selectPlayerTwo() {
             $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Anakin200.png"  style="opacity: .95"/>'); 
         }, 2000); 
         characterTwo = Anakin;
+        setTimeout(function () {
+        $("#playerTwoHealthText").text(twoHealth);
+    }, 2500);
         playerTwoNotChosen = false;
-        console.log(characterTwo);
+        console.log("Player Two is: " +characterTwo[0]);
+        console.log(characterTwo[0] + "'s attack power is: " +characterTwo[1]);
         beginBattle();
         }
            else if (this.id === "char4" && Dooku != characterOne && playerTwoNotChosen === true) {
@@ -213,14 +254,78 @@ function selectPlayerTwo() {
             $('#arenaChar2').prepend('<img id="arenaChar1" src="assets/images/Dooku160.png"  style="opacity: .95"/>'); 
         }, 2000); 
         characterTwo = Dooku;
+        setTimeout(function () {
+        $("#playerTwoHealthText").text(twoHealth);
+    }, 2500);
         playerTwoNotChosen = false;
-        console.log(characterTwo);
+        console.log("Player Two is: " +characterTwo[0]);
+        console.log(characterTwo[0] + "'s attack power is: " +characterTwo[1]);
         beginBattle();
         }
           });  //$(".starWarsCharacter").on("click", function () *************CLOSER
     }
 }  // selectPlayerTwo() ********************CLOSER
-    });  // $(document).ready(function () CLOSER
+
+
+function beginBattle() {
+    $("#attackButton").on("click", function () {
+    if (twoHealth >= 0 && oneHealth >= 0) {  
+            playerOneAttack =   (characterOne[1] - (Math.floor(Math.random() * 75)  ));
+            console.log(playerOneAttack);
+            twoHealth = twoHealth- playerOneAttack;
+            $("#playerTwoHealthText").text(twoHealth);
+            
+            playerTwoAttack = (characterTwo[1] - (Math.floor(Math.random() * 150)  ));
+            console.log(playerTwoAttack);
+            oneHealth = oneHealth - playerTwoAttack;
+            $("#playerOneHealthText").text(oneHealth);
+        }
+    })
+    };   //begin battle closer
+
+
+});  // $(document).ready(function () CLOSER
+
+</script>
+<!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
+</body>
+</html>
+        
+        
+//         console.log( characterOne[0] + "'s attack is "  +
+//       (characterOne[1] - (Math.floor(Math.random() * 75)  ))
+// );
+//         console.log( characterTwo[0] + "'s attack is "  +
+//       (characterTwo[1] - (Math.floor(Math.random() * 150)  ))
+// );
+        // console.log("attack was pressed");
+        // console.log(characterOne[0]);
+        // console.log(characterOne[1]);
+        // console.log(characterTwo[0]);
+        // console.log(characterTwo[1]);
+        // console.log(characterOne[1]);
+
+
+
+gem1 = Math.floor((Math.random() * 12) + 1);
+gem2 = Math.floor((Math.random() * 12) + 1);
+gem3 = Math.floor((Math.random() * 12) + 1);
+gem4 = Math.floor((Math.random() * 12) + 1);
+totalScoreTarget = Math.floor((Math.random() * 101) + 19);
+$("#totalScoreTarget").text(totalScoreTarget);
+$("#currentTotalScore").text(totalScore);
+$("#wins").text("Wins: " + win);
+$("#losses").text("Loses: " + loss);
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -247,11 +352,3 @@ function selectPlayerTwo() {
            //    alert("Character Name: " + this.id);
            
            
-           </script>
-
-
-
-<!-- <script type="text/javascript" src="assets/javascript/game.js"></script> -->
-</body>
-
-</html>
